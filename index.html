@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2A0A14">
+<title>Voices | We the 92%</title>
+<meta name="description" content="Hear the contributors of We the 92%: An Anthology of Black Women's Witness, in their own voices.">
+<meta property="og:title" content="Voices | We the 92%">
+<meta property="og:description" content="Hear the contributors of We the 92%: An Anthology of Black Women's Witness, in their own voices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2A0A14;
+  --surface:#3A1220;
+  --line:#5A2536;
+  --ivory:#F7EFE4;
+  --muted:#CDB9AE;
+  --gold:#E0AC4E;
+  --gold-deep:#B8862A;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ivory);font-family:var(--sans);font-size:17px;line-height:1.6;min-height:100vh}
+a{color:var(--gold);text-underline-offset:3px}
+a:hover{color:var(--ivory)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+button{font:inherit;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px 0 14px;border-bottom:1px solid var(--line)}
+.mark{font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.01em;color:var(--ivory);text-decoration:none}
+.mark span{color:var(--gold)}
+.bar a.site{font-size:15px;color:var(--muted)}
+
+/* profile layout */
+.profile{display:block;padding-bottom:56px}
+.portrait{position:relative;margin:0 -20px;aspect-ratio:4/5;max-height:70vh;width:calc(100% + 40px);background:var(--surface);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,rgba(42,10,20,.55) 28%,rgba(42,10,20,0) 58%)}
+.mono{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:96px;color:var(--gold);letter-spacing:.04em}
+.head{position:relative;margin-top:-92px;z-index:2}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,9vw,64px);line-height:1.02;margin:0 0 10px;letter-spacing:-.01em}
+.piece{font-family:var(--serif);font-style:italic;font-size:clamp(20px,4.6vw,26px);line-height:1.3;color:var(--muted);margin:0}
+.piece b{font-weight:400;color:var(--ivory)}
+
+h2{font-family:var(--serif);font-weight:400;font-size:26px;margin:44px 0 6px}
+.hint{color:var(--muted);font-size:15px;margin:0 0 20px}
+
+/* clip card */
+.clip{border-top:1px solid var(--line);padding:22px 0 24px}
+.clip:last-of-type{border-bottom:1px solid var(--line)}
+.q{font-family:var(--serif);font-size:clamp(20px,4.2vw,24px);line-height:1.3;margin:0 0 16px;max-width:34em}
+.player{display:flex;align-items:center;gap:16px}
+.play{flex:none;width:64px;height:64px;border-radius:50%;border:0;background:var(--gold);color:#2A0A14;display:grid;place-items:center;cursor:pointer;transition:transform .12s}
+.play:active{transform:scale(.95)}
+.play svg{width:26px;height:26px;fill:currentColor}
+.play .i-pause{display:none}
+.clip.playing .play .i-play{display:none}
+.clip.playing .play .i-pause{display:block}
+.track{flex:1;min-width:0}
+.wave{position:relative;height:56px;cursor:pointer;touch-action:none;border-radius:6px}
+.wave .layer{position:absolute;inset:0;display:flex;align-items:center;gap:2px}
+.wave .layer i{flex:1;min-width:1px;border-radius:2px;background:rgba(247,239,228,.3)}
+.wave .fill{clip-path:inset(0 calc((1 - var(--p,0)) * 100%) 0 0)}
+.wave .fill i{background:var(--gold)}
+.time{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:6px}
+.clip .err{color:#FFB4A8;font-size:15px;margin:10px 0 0}
+
+/* bio */
+.bio{max-width:34em}
+.bio p{margin:0 0 1em;font-family:var(--serif);font-size:19px;line-height:1.65;color:var(--ivory)}
+.actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;border:1px solid var(--gold);background:transparent;color:var(--gold);padding:11px 20px;border-radius:999px;text-decoration:none;cursor:pointer;font-weight:500;font-size:16px}
+.btn:hover{background:var(--gold);color:#2A0A14}
+.btn.solid{background:var(--gold);color:#2A0A14}
+.btn.solid:hover{background:var(--ivory);border-color:var(--ivory)}
+
+/* soon, errors, landing */
+.notice{padding:64px 0 24px;max-width:32em}
+.notice h1{font-size:clamp(32px,7vw,48px)}
+.notice p{color:var(--muted);font-size:19px}
+.soon{margin-top:36px;padding:22px 22px;border:1px solid var(--line);border-radius:10px;background:var(--surface);max-width:34em}
+.soon p{margin:0;font-family:var(--serif);font-size:20px;line-height:1.4}
+.dir{list-style:none;margin:28px 0 0;padding:0;columns:1;column-gap:32px}
+.dir li{break-inside:avoid;border-top:1px solid var(--line)}
+.dir a{display:block;padding:14px 0;text-decoration:none;color:var(--ivory);font-family:var(--serif);font-size:21px;line-height:1.25}
+.dir a small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);font-style:normal}
+.dir a:hover{color:var(--gold)}
+.loading{padding:80px 0;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:20px}
+
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:15px}
+footer p{margin:0 0 6px}
+footer .t{font-family:var(--serif);color:var(--ivory);font-size:18px}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media(min-width:900px){
+  .wrap{padding:0 32px}
+  .profile{display:grid;grid-template-columns:minmax(300px,400px) 1fr;gap:64px;align-items:start;padding-top:40px}
+  .portrait{margin:0;width:100%;aspect-ratio:4/5;max-height:none;position:sticky;top:24px;border-radius:4px}
+  .portrait::after{background:linear-gradient(to top,rgba(42,10,20,.35),rgba(42,10,20,0) 40%)}
+  .head{margin-top:0}
+  .main h2:first-of-type{margin-top:36px}
+  .dir{columns:2}
+}
+@media(prefers-reduced-motion:no-preference){
+  .portrait img{animation:rise .9s ease-out both}
+  @keyframes rise{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="./">We the <span>92%</span></a>
+    <a class="site" href="https://wethe92.com">wethe92.com</a>
+  </header>
+  <main id="app" aria-live="polite"><p class="loading">Loading…</p></main>
+  <footer>
+    <p class="t">We the 92%: An Anthology of Black Women's Witness</p>
+    <p>Edited by Cheryl J. Thompson, MSPH and Sonya Hunt Gray. Published by Inkwell &amp; Chalkboard LLC.</p>
+  </footer>
+</div>
+
+<script>
+/* ---------- settings ---------- */
+const SHEET_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQf2UY-6CSu5BXrFqwbuIdpjznYimAFY51uTaN58PaLyntR_fAZZWPSs26C8A0revXbAqj29Cpo48Bv/pub?gid=151814676&single=true&output=csv";
+const GA_ID = "";            // optional: paste a Google Analytics ID such as G-XXXXXXXXXX to count visits and plays
+const MAX_CLIPS = 8;
+const SITE = "https://wethe92.com";
+
+/* ---------- optional analytics (off until GA_ID is set) ---------- */
+if (GA_ID) {
+  const s = document.createElement("script");
+  s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", GA_ID, { send_page_view: false });
+}
+function track(name, params){ try { if (window.gtag) gtag("event", name, params || {}); } catch(e){} }
+
+/* ---------- helpers ---------- */
+const $app = document.getElementById("app");
+const el = (tag, attrs, ...kids) => {
+  const n = document.createElement(tag);
+  for (const k in (attrs||{})) {
+    if (k === "class") n.className = attrs[k];
+    else if (k === "text") n.textContent = attrs[k];
+    else n.setAttribute(k, attrs[k]);
+  }
+  kids.flat().forEach(c => { if (c != null) n.append(c.nodeType ? c : document.createTextNode(c)); });
+  return n;
+};
+const clean = v => (v == null ? "" : String(v).replace(/ /g," ").trim());
+const safeUrl = u => { u = clean(u); return /^https:\/\//i.test(u) ? u : ""; };
+const normId = v => clean(v).toLowerCase().replace(/\s+/g,"_");
+const fmt = s => { if (!isFinite(s)) return "-:--"; s = Math.max(0, Math.floor(s)); return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); };
+
+function parseCSV(text){
+  const rows = []; let row = [], f = "", q = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (q){
+      if (c === '"'){ if (text[i+1] === '"'){ f += '"'; i++; } else q = false; }
+      else f += c;
+    } else if (c === '"') q = true;
+    else if (c === ","){ row.push(f); f = ""; }
+    else if (c === "\n"){ row.push(f); rows.push(row); row = []; f = ""; }
+    else if (c !== "\r") f += c;
+  }
+  if (f !== "" || row.length){ row.push(f); rows.push(row); }
+  return rows;
+}
+
+async function loadPeople(){
+  const res = await fetch(SHEET_CSV, { cache: "no-store" });
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  const rows = parseCSV(await res.text());
+  if (!rows.length) return [];
+  const head = rows[0].map(h => clean(h).toLowerCase());
+  const col = {}; head.forEach((h,i) => { if (h && !(h in col)) col[h] = i; });
+  if (!("id" in col)) throw new Error("Sheet has no id column");
+  const get = (r, k) => (k in col ? clean(r[col[k]]) : "");
+  const people = [];
+  for (let i = 1; i < rows.length; i++){
+    const r = rows[i];
+    const id = normId(get(r,"id"));
+    if (!id) continue;
+    const clips = [];
+    for (let n = 1; n <= MAX_CLIPS; n++){
+      const src = safeUrl(get(r,"audio"+n));
+      if (src) clips.push({ n, src, q: get(r,"q"+n) });
+    }
+    people.push({ id, name: get(r,"name"), piece: get(r,"piece_title"), bio: get(r,"bio"), photo: safeUrl(get(r,"photo_url")) || ("images/" + id + ".jpg"), clips });
+  }
+  return people;
+}
+
+/* ---------- waveform + player ---------- */
+function rng(seed){ let a = seed >>> 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function hash(s){ let h = 2166136261; for (let i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+
+const ICON_PLAY = '<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.52.85l10.4-6.5a1 1 0 0 0 0-1.7L9.52 4.65A1 1 0 0 0 8 5.5z"/></svg>';
+const ICON_PAUSE = '<svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="4.5" height="14" rx="1.2"/></svg>';
+const players = [];
+
+function buildClip(person, clip, index){
+  const label = clip.q || ("Clip " + (index + 1));
+  const audio = new Audio(); audio.preload = "metadata"; audio.src = clip.src;
+  const rand = rng(hash(person.id + ":" + clip.n));
+  const N = 56, heights = [];
+  for (let i = 0; i < N; i++){
+    const env = 0.35 + 0.65 * Math.sin(Math.PI * (i + 0.5) / N) ** 0.6;
+    heights.push(Math.round((0.18 + 0.82 * rand()) * env * 100));
+  }
+  const makeLayer = cls => el("div", { class: "layer " + cls, "aria-hidden": "true" }, heights.map(h => { const b = el("i"); b.style.height = Math.max(8, h) + "%"; return b; }));
+  const wave = el("div", { class: "wave", role: "slider", tabindex: "0", "aria-label": "Playback position: " + label, "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": "0", "aria-valuetext": "0:00" }, makeLayer("base"), makeLayer("fill"));
+  const tCur = el("span", { text: "0:00" }), tDur = el("span", { text: "-:--" });
+  const btn = el("button", { class: "play", type: "button", "aria-label": "Play: " + label });
+  btn.innerHTML = ICON_PLAY + ICON_PAUSE;
+  const err = el("p", { class: "err", hidden: "" });
+  const card = el("section", { class: "clip", "aria-label": label },
+    el("p", { class: "q", text: label }),
+    el("div", { class: "player" }, btn, el("div", { class: "track" }, wave, el("div", { class: "time" }, tCur, tDur))),
+    err);
+
+  const setP = p => { wave.style.setProperty("--p", p); wave.setAttribute("aria-valuenow", String(Math.round(p * 100))); };
+  const show = () => { setP(audio.duration ? audio.currentTime / audio.duration : 0); tCur.textContent = fmt(audio.currentTime); wave.setAttribute("aria-valuetext", fmt(audio.currentTime) + " of " + fmt(audio.duration)); };
+  audio.addEventListener("loadedmetadata", () => { tDur.textContent = fmt(audio.duration); });
+  audio.addEventListener("durationchange", () => { tDur.textContent = fmt(audio.duration); });
+  audio.addEventListener("timeupdate", show);
+  audio.addEventListener("play", () => {
+    players.forEach(p => { if (p.audio !== audio) p.audio.pause(); });
+    card.classList.add("playing"); btn.setAttribute("aria-label", "Pause: " + label);
+    err.hidden = true;
+    track("audio_play", { contributor: person.id, clip: clip.n });
+    if ("mediaSession" in navigator){
+      try { navigator.mediaSession.metadata = new MediaMetadata({ title: label, artist: person.name, album: "We the 92%" }); } catch(e){}
+    }
+  });
+  audio.addEventListener("pause", () => { card.classList.remove("playing"); btn.setAttribute("aria-label", "Play: " + label); });
+  audio.addEventListener("ended", () => { track("audio_complete", { contributor: person.id, clip: clip.n }); audio.currentTime = 0; show(); });
+  audio.addEventListener("error", () => { err.textContent = "This clip could not be loaded. Please try again in a moment."; err.hidden = false; card.classList.remove("playing"); });
+
+  btn.addEventListener("click", () => { if (audio.paused) audio.play().catch(() => { err.textContent = "This clip could not be played. Please try again."; err.hidden = false; }); else audio.pause(); });
+
+  const seekTo = x => { const r = wave.getBoundingClientRect(); if (!audio.duration) return; audio.currentTime = Math.min(1, Math.max(0, (x - r.left) / r.width)) * audio.duration; show(); };
+  let drag = false;
+  wave.addEventListener("pointerdown", e => { drag = true; wave.setPointerCapture(e.pointerId); seekTo(e.clientX); });
+  wave.addEventListener("pointermove", e => { if (drag) seekTo(e.clientX); });
+  wave.addEventListener("pointerup", () => { drag = false; });
+  wave.addEventListener("pointercancel", () => { drag = false; });
+  wave.addEventListener("keydown", e => {
+    if (!audio.duration) return;
+    const k = e.key;
+    if (k === "ArrowRight" || k === "ArrowUp"){ audio.currentTime = Math.min(audio.duration, audio.currentTime + 5); }
+    else if (k === "ArrowLeft" || k === "ArrowDown"){ audio.currentTime = Math.max(0, audio.currentTime - 5); }
+    else if (k === "Home"){ audio.currentTime = 0; }
+    else if (k === "End"){ audio.currentTime = audio.duration - 0.1; }
+    else return;
+    e.preventDefault(); show();
+  });
+
+  players.push({ audio });
+  return card;
+}
+
+/* ---------- views ---------- */
+function initials(name){ const t = clean(name).split(/\s+/).filter(Boolean); return ((t[0]||"")[0] || "") + ((t.length > 1 ? t[t.length-1] : "")[0] || ""); }
+
+function viewProfile(p){
+  document.title = (p.name || "Voices") + " | We the 92%";
+  track("page_view", { page_title: document.title, contributor: p.id });
+  const portrait = el("div", { class: "portrait" });
+  if (p.photo){
+    const img = el("img", { src: p.photo, alt: "Portrait of " + (p.name || "the contributor"), referrerpolicy: "no-referrer" });
+    img.addEventListener("error", () => { img.remove(); portrait.prepend(el("div", { class: "mono", "aria-hidden": "true", text: initials(p.name) })); });
+    portrait.append(img);
+  } else portrait.append(el("div", { class: "mono", "aria-hidden": "true", text: initials(p.name) }));
+
+  const head = el("div", { class: "head" }, el("h1", { text: p.name || "Contributor" }));
+  if (p.piece) head.append(el("p", { class: "piece" }, "Author of ", el("b", { text: p.piece })));
+
+  const main = el("div", { class: "main" });
+  if (p.clips.length){
+    main.append(el("h2", { text: "Hear her in her own words" }),
+                el("p", { class: "hint", text: "Press play on any question." }));
+    p.clips.forEach((c, i) => main.append(buildClip(p, c, i)));
+  } else {
+    main.append(el("div", { class: "soon" }, el("p", { text: "Her recorded conversation is on its way. Please check back soon." })));
+  }
+  if (p.bio){
+    main.append(el("h2", { text: "About " + (p.name ? p.name.split(" ")[0] : "her") }));
+    const bio = el("div", { class: "bio" });
+    p.bio.split(/\n+/).filter(Boolean).forEach(t => bio.append(el("p", { text: t })));
+    main.append(bio);
+  }
+  const actions = el("div", { class: "actions" });
+  if (navigator.share){
+    const s = el("button", { class: "btn solid", type: "button", text: "Share this page" });
+    s.addEventListener("click", () => { navigator.share({ title: document.title, url: location.href }).catch(() => {}); });
+    actions.append(s);
+  }
+  actions.append(el("a", { class: "btn", href: "./", text: "Hear other voices" }));
+  main.append(actions);
+
+  $app.replaceChildren(el("div", { class: "profile" }, portrait, el("div", {}, head, main)));
+}
+
+function viewLanding(people){
+  document.title = "Voices | We the 92%";
+  track("page_view", { page_title: document.title });
+  const withAudio = people.filter(p => p.clips.length).sort((a,b) => (a.name||"").localeCompare(b.name||""));
+  const box = el("div", { class: "notice" },
+    el("h1", { text: "Hear the voices behind the book" }),
+    el("p", { text: "Many contributors to We the 92% recorded a conversation about their writing. Scan the code beside a piece in the book, or choose a name below." }));
+  $app.replaceChildren(box);
+  if (withAudio.length){
+    const ul = el("ul", { class: "dir" });
+    withAudio.forEach(p => ul.append(el("li", {}, el("a", { href: "?c=" + encodeURIComponent(p.id) }, p.name || p.id, p.piece ? el("small", { text: p.piece }) : null))));
+    $app.append(ul);
+  }
+}
+
+function viewMessage(title, body, withRetry){
+  const box = el("div", { class: "notice" }, el("h1", { text: title }), el("p", { text: body }));
+  const a = el("div", { class: "actions" });
+  if (withRetry){ const b = el("button", { class: "btn solid", type: "button", text: "Try again" }); b.addEventListener("click", () => location.reload()); a.append(b); }
+  a.append(el("a", { class: "btn", href: "./", text: "See all voices" }));
+  box.append(a);
+  $app.replaceChildren(box);
+}
+
+/* ---------- start ---------- */
+(async function(){
+  const wanted = normId(new URLSearchParams(location.search).get("c") || "");
+  let people;
+  try { people = await loadPeople(); }
+  catch(e){ viewMessage("This page could not load", "Please check your connection and try again.", true); return; }
+  if (!wanted){ viewLanding(people); return; }
+  const p = people.find(x => x.id === wanted);
+  if (!p){ viewMessage("We could not find that page", "The link may be incomplete. You can browse everyone who recorded a conversation.", false); return; }
+  viewProfile(p);
+})();
+</script>
+</body>
+</html>
